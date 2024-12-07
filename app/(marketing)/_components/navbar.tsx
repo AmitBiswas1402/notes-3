@@ -8,6 +8,7 @@ import { useConvexAuth } from "convex/react";
 import { SignInButton, UserButton } from "@clerk/nextjs";
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import { Loader } from "lucide-react";
 
 const Navbar = () => {
   const { isAuthenticated, isLoading } = useConvexAuth()
@@ -24,7 +25,7 @@ const Navbar = () => {
         <Logo />
         <div className="md:ml-auto md:justify-end justify-between w-full flex items-center gap-x-2">
           {isLoading && (
-            <p>Loading...</p>
+            <Loader />
           )}
           {!isAuthenticated && !isLoading && (
             <>
